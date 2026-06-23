@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabinete — Arte Contemporáneo en Chile</title>
+  <meta name="description" content="Gabinete es una serie web documental que muestra cuál ha sido la vocación del arte en Chile en las últimas décadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="index_files/css2_eT4t.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde: #283f3e;
+      --verde-medio: #223635;
+      --amarillo: #E8D87F;
+      --amarillo-hover: #f0e49a;
+      --blanco: #f5f0e8;
+      --gris: rgba(232,216,127,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--verde);
+      color: var(--blanco);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    nav.scrolled { background: rgba(30,53,40,0.98); }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--amarillo); }
+
+    /* Capítulos dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(30,53,40,0.97);
+      border: 1px solid var(--gris);
+      padding: 0.8rem 0;
+      min-width: 200px;
+      list-style: none;
+    }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+    .dropdown-menu li a:hover { background: rgba(232,216,127,0.08); }
+
+    /* ── HERO MODIFICADO (SOLO LOGO GRANDE) ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: var(--verde); /* Mismo fondo */
+    }
+
+    .hero-main-logo {
+      width: 85%;
+      max-width: 650px; /* Tamaño grande y controlado */
+      height: auto;
+      display: block;
+      opacity: 0.95;
+    }
+
+    /* ── TRAILER MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-inner {
+      position: relative;
+      width: 90vw;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+    }
+    .modal-inner iframe { width: 100%; height: 100%; border: none; }
+    .modal-close {
+      display: block;
+      margin: 1rem auto 0;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--blanco);
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      font-family: 'Jost', sans-serif;
+      position: static;
+    }
+
+    /* ── CAPÍTULOS SECTION ── */
+    #capitulos {
+      padding: 6rem 0 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 0 2rem;
+    }
+    .section-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--amarillo);
+    }
+
+    /* Grid 2 cols */
+    .cap
